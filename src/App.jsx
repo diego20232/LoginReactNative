@@ -29,7 +29,7 @@ const style = StyleSheet.create(
             fontSize: 23,
             padding: 40,
             color: 'white',
-            fontFamily: 'arial'
+            fontFamily: 'Arial Narrow',
         },
         fundo: {
             flex: 1,
