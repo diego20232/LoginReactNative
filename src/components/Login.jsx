@@ -9,11 +9,29 @@ export default () => {
     const [nome, setNome] = useState('');
     const [senha, setSenha] = useState('');
     const [msg, setMsg] = useState('');
+    const [sair, setSaida] = useState('');
 
     // const [senha, setSenha] = useState('');
     // const [msglogin, setMsgLogin] = useState('');
 
     // const senhaUsuario = 'senha123';
+
+    const saida = () => {
+        if(senha === 'senha123') {
+       setSaida(`deseja sair ${nome} ?`)
+       setTimeout(() => {
+        setSaida('');
+       }, 8000);
+    } else if (nome !== 'senha123'){
+        setSaida(`Login inválido, crie uma conta no nosso APP${nome} :)`)
+        setTimeout(() => {
+            setSaida('');
+        }, 4000);
+    }else{
+        setSaida(`Volte sempre Diego ${nome}`)
+    }
+}
+    
 
 
     const clique = () => {
@@ -21,17 +39,17 @@ export default () => {
             setMsg('insira seu nome de usúario');
             setTimeout(() => {
                 setMsg('');
-            }, 2000);
+            }, 3000);
         } else if (senha !== 'senha123') {
             setMsg('senha Incorreta')
             setTimeout(() => {
                 setMsg('');
-            }, 2000);
+            }, 3000);
         } else {
             setMsg(`Bem vindo ao sistema ${nome}`)
             setTimeout(() => {
                 setMsg('');
-            }, 4000);
+            }, 3000);
         }
 
 
@@ -56,7 +74,7 @@ export default () => {
             <Button icon={require('../assets/fonts/icon.png')} style={{
                 width: 300,
                 margin: 15,
-                height: 40,
+                // height: 40,
             }} mode="contained" buttonColor="#5F9EA0" textColor="white" onPress={clique} on>Entrar</Button>
 
             <Text style={{
@@ -77,6 +95,37 @@ export default () => {
                 color: 'white',
                 textAlign: 'center',
             }}>{msglogin}</Text> */}
+
+<Button icon={require('../assets/fonts/saida.png')} style={{
+                width: 300,
+                margin: 15,
+                height: 40,
+            }} mode="contained" buttonColor="#5F9EA0" textColor="white" onPress={saida} onChangeText={text => setSaida(text)} value={sair}>Sair</Button>
+
+<Text style={{
+                fontSize: 20,
+                color: 'white',
+                textAlign: 'center',
+                fontWeight: "bold",
+            }}>{sair}</Text>
+
+            <Text style={{
+                fontFamily: 'fantasy',
+                fontSize: 15,
+                color: 'white',
+                textAlign: 'center',
+                lineHeight: 25,
+                borderBottomWidth: 1,
+                borderBottomColor: 'white',
+                marginTop: 5,
+                
+                
+            }}>Clique aqui para um novo Cadastro :)</Text>
+            
+
+            
+
+
 
 
         </View>
